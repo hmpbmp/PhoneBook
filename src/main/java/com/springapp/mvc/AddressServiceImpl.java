@@ -3,6 +3,7 @@ package com.springapp.mvc;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +17,7 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	public List<Address> getAllAddresses() {
-		return addressRepository.findAll();
+		return addressRepository.findAll(sortByNameAsc());
 
 	}
 
@@ -31,6 +32,10 @@ public class AddressServiceImpl implements AddressService {
 	public void updateAddress(Address address) {
 		addressRepository.save(address);
 
+	}
+
+	private Sort sortByNameAsc() {
+		return new Sort(Sort.Direction.ASC,"name");
 	}
 
 }

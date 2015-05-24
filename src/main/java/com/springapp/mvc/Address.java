@@ -19,6 +19,8 @@ public class Address {
 	private String phone;
 	@Basic
 	private String email;
+	@Basic
+	private String imageURL;
 
 	public Address(String name, String address, String phoneNumber, String email) {
 		this.name = name;
@@ -70,5 +72,12 @@ public class Address {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
 }
